@@ -1,6 +1,11 @@
-const SITE = "https://biomininghandbook.homeworld.bio";
+// New canonical home (2026-07): the handbook now lives under the main WordPress site at
+// /criticalminerals/handbook (nginx reverse-proxy). Old host biomininghandbook.homeworld.bio
+// 301s here. Sitemap URLs must use the new path so GSC indexes the consolidated location.
+const SITE = "https://www.homeworld.bio/criticalminerals/handbook";
 
-// Served at /sitemap.xml — the list of pages worth indexing.
+// Served at <basePath>/sitemap.xml — the list of pages worth indexing.
+// NOTE: submit this exact URL in Google Search Console — the authoritative /robots.txt at the
+// domain root is WordPress's, so discovery via the nested robots.txt is not guaranteed.
 //
 // Why this exists (added 2026-07-22): Google Search Console reported
 // "No referring sitemaps detected" and "Referring page: None detected" for this site,

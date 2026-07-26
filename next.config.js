@@ -1,11 +1,19 @@
 /** @type {import('next').NextConfig} */
+const basePath = '/criticalminerals/handbook';
+
 const nextConfig = {
+  // Served under the WordPress site at /criticalminerals/handbook via nginx reverse-proxy.
+  // basePath prefixes next/link, next/image and /_next/ bundle assets automatically.
+  // NOTE: raw asset strings (<img src="/...">, CSS url('/...')) are NOT prefixed by basePath —
+  // build those paths with process.env.NEXT_PUBLIC_BASE_PATH (exposed via env below).
+  basePath,
   reactStrictMode: true,
   images: {
     unoptimized: true,
   },
   env: {
     NEXT_PUBLIC_BUILD_DATE: new Date().toISOString(),
+    NEXT_PUBLIC_BASE_PATH: basePath,
   },
   async redirects() {
     return [

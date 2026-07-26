@@ -121,7 +121,7 @@ export default function ForBiologists() {
                 number="3"
                 title="Mining: Moving Rock at Massive Scale"
                 color="emerald"
-                image="/images/open-pit-mine-kalgoorlie.jpg"
+                image={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/open-pit-mine-kalgoorlie.jpg`}
                 imageCaption="Open pit mine — the scale of rock movement in modern mining operations"
                 imageSource="Photo by Matthew de Livera on Unsplash"
                 imageDate="August 9, 2021"
@@ -224,7 +224,7 @@ export default function ForBiologists() {
                 icon={TrendingUp}
                 description="Mid-size mines process tens of millions of tonnes of ore annually."
                 implication="Be explicit about scale. Side-stream bio-units that augment existing operations are more realistic early targets than whole-plant replacements"
-                image="/images/mine-scale-chuquicamata.jpg"
+                image={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/mine-scale-chuquicamata.jpg`}
                 imageCaption="Large-scale mining operation — millions of tonnes of ore and associated infrastructure"
                 imageSource="Photo by Bruna Fiscuk on Unsplash"
                 imageDate="June 5, 2019"

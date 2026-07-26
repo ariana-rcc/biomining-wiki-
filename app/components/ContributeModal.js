@@ -25,7 +25,7 @@ export default function ContributeModal({ isOpen, onClose }) {
     setSubmitMessage(null);
 
     try {
-      const response = await fetch('/api/comments', {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_PATH}/api/comments`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

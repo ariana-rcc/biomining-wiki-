@@ -1,4 +1,5 @@
-const SITE = "https://biomininghandbook.homeworld.bio";
+// Handbook now served under the main site at /criticalminerals/handbook (see sitemap.js).
+const SITE = "https://www.homeworld.bio/criticalminerals/handbook";
 
 // Served at /robots.txt — the first thing a search engine asks for. Before this,
 // /robots.txt returned a 404, and the sitemap line below did not exist anywhere, so
@@ -16,6 +17,6 @@ export default function robots() {
       disallow: ["/admin", "/api/"],
     },
     sitemap: `${SITE}/sitemap.xml`,
-    host: SITE,
+    host: "https://www.homeworld.bio",
   };
 }

@@ -27,7 +27,7 @@ export default function Footer() {
     setSubmitMessage(null);
 
     try {
-      const response = await fetch('/api/newsletter', {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_PATH}/api/newsletter`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, Address: '' })
@@ -58,7 +58,7 @@ export default function Footer() {
             <div className="flex flex-col gap-2">
             <div className="flex items-center gap-6">
               <a href="https://www.homeworld.bio" target="_blank" rel="noopener noreferrer" className="shrink-0">
-                <img src="/images/homeworld-logo-full.png" alt="Homeworld Logo" className="h-12" />
+                <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/homeworld-logo-full.png`} alt="Homeworld Logo" className="h-12" />
               </a>
               <div className="flex flex-wrap gap-2">
                 {navLinks.map((link) => (

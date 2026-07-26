@@ -40,7 +40,7 @@ export default function AdminCommentsPage() {
   const loadComments = async (token) => {
     setLoading(true);
     try {
-      const response = await fetch('/api/admin/comments', {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_PATH}/api/admin/comments`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -70,7 +70,7 @@ export default function AdminCommentsPage() {
 
   const handleModerate = async (page, commentId, action) => {
     try {
-      const response = await fetch('/api/admin/comments', {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_PATH}/api/admin/comments`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',

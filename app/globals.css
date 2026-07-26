@@ -13,8 +13,8 @@
 /* PP Mori Font */
 @font-face {
   font-family: 'PP Mori';
-  src: url('/fonts/PPMori-Extralight.woff2') format('woff2'),
-       url('/fonts/PPMori-Extralight.woff') format('woff');
+  src: url('/criticalminerals/handbook/fonts/PPMori-Extralight.woff2') format('woff2'),
+       url('/criticalminerals/handbook/fonts/PPMori-Extralight.woff') format('woff');
   font-weight: 200;
   font-style: normal;
   font-display: swap;
@@ -22,8 +22,8 @@
 
 @font-face {
   font-family: 'PP Mori';
-  src: url('/fonts/PPMori-Regular.woff2') format('woff2'),
-       url('/fonts/PPMori-Regular.woff') format('woff');
+  src: url('/criticalminerals/handbook/fonts/PPMori-Regular.woff2') format('woff2'),
+       url('/criticalminerals/handbook/fonts/PPMori-Regular.woff') format('woff');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -31,8 +31,8 @@
 
 @font-face {
   font-family: 'PP Mori';
-  src: url('/fonts/PPMori-RegularItalic.woff2') format('woff2'),
-       url('/fonts/PPMori-RegularItalic.woff') format('woff');
+  src: url('/criticalminerals/handbook/fonts/PPMori-RegularItalic.woff2') format('woff2'),
+       url('/criticalminerals/handbook/fonts/PPMori-RegularItalic.woff') format('woff');
   font-weight: 400;
   font-style: italic;
   font-display: swap;
@@ -40,8 +40,8 @@
 
 @font-face {
   font-family: 'PP Mori';
-  src: url('/fonts/PPMori-SemiBold.woff2') format('woff2'),
-       url('/fonts/PPMori-SemiBold.woff') format('woff');
+  src: url('/criticalminerals/handbook/fonts/PPMori-SemiBold.woff2') format('woff2'),
+       url('/criticalminerals/handbook/fonts/PPMori-SemiBold.woff') format('woff');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -49,8 +49,8 @@
 
 @font-face {
   font-family: 'PP Mori';
-  src: url('/fonts/PPMori-Bold.woff2') format('woff2'),
-       url('/fonts/PPMori-Bold.woff') format('woff');
+  src: url('/criticalminerals/handbook/fonts/PPMori-Bold.woff2') format('woff2'),
+       url('/criticalminerals/handbook/fonts/PPMori-Bold.woff') format('woff');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -99,7 +99,7 @@ body::before {
   content: '';
   position: fixed;
   inset: 0;
-  background-image: url('/images/background.png');
+  background-image: url('/criticalminerals/handbook/images/background.png');
   background-size: cover;
   background-position: center;
   filter: blur(0.5px);
@@ -107,17 +107,17 @@ body::before {
 }
 
 body.learn-bg::before {
-  background-image: url('/images/learn-bg.png');
+  background-image: url('/criticalminerals/handbook/images/learn-bg.png');
   filter: none;
 }
 
 body.professionals-bg::before {
-  background-image: url('/images/professionals-bg.png');
+  background-image: url('/criticalminerals/handbook/images/professionals-bg.png');
   filter: none;
 }
 
 body.resources-bg::before {
-  background-image: url('/images/resources-bg.png');
+  background-image: url('/criticalminerals/handbook/images/resources-bg.png');
   filter: none;
 }
 
