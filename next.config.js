@@ -17,6 +17,30 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      // Old subdomain -> new nested path (added 2026-07-26, post-cutover fix).
+      // These MUST live here, not in middleware.js: `basePath` also scopes the
+      // middleware `matcher`, so a request to biomininghandbook.homeworld.bio/glossary
+      // never matches it and falls through to a Vercel platform 404. Config redirects
+      // run at the routing layer, ahead of the 404, and are not basePath-scoped when
+      // `basePath: false` is set.
+      //
+      // Safe against loops: nginx proxies with `Host: biomining-wiki-gules.vercel.app`,
+      // so proxied traffic never matches this `has` host condition.
+      {
+        source: '/',
+        has: [{ type: 'host', value: 'biomininghandbook.homeworld.bio' }],
+        destination: 'https://www.homeworld.bio/criticalminerals/handbook',
+        permanent: true,
+        basePath: false,
+      },
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'biomininghandbook.homeworld.bio' }],
+        destination: 'https://www.homeworld.bio/criticalminerals/handbook/:path*',
+        permanent: true,
+        basePath: false,
+      },
+
       { source: '/for-biologists', destination: '/mining-101', permanent: true },
       { source: '/for-biologists/:path*', destination: '/mining-101/:path*', permanent: true },
       { source: '/for-miners', destination: '/biology-101', permanent: true },
