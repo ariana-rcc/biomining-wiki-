@@ -36,7 +36,7 @@ export default function BiominingHome() {
                     <div
                       className="absolute inset-0"
                       style={{
-                        backgroundImage: "url('/images/background.png')",
+                        backgroundImage: `url('${process.env.NEXT_PUBLIC_BASE_PATH}/images/background.png')`,
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
                         backgroundAttachment: 'fixed',
@@ -80,7 +80,7 @@ export default function BiominingHome() {
 
               {/* Homeworld logo - positioned within green shape */}
               <img
-                src="/images/homeworld-logo-full.png"
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/homeworld-logo-full.png`}
                 alt="Homeworld Collective"
                 className="absolute z-10"
                 style={{ top: '6%', left: '3%', width: 'clamp(140px, 16%, 320px)' }}
@@ -112,7 +112,7 @@ export default function BiominingHome() {
               <div
                 className="absolute inset-0"
                 style={{
-                  backgroundImage: "url('/images/background.png')",
+                  backgroundImage: `url('${process.env.NEXT_PUBLIC_BASE_PATH}/images/background.png')`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                   filter: 'blur(14px)',
@@ -121,7 +121,7 @@ export default function BiominingHome() {
               />
               <div className="relative p-6 sm:p-8">
                 <img
-                  src="/images/homeworld-logo-full.png"
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/homeworld-logo-full.png`}
                   alt="Homeworld Collective"
                   className="w-32 sm:w-40 mb-8"
                 />

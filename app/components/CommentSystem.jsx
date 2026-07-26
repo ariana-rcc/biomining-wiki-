@@ -115,7 +115,7 @@ export default function CommentSystem({ pageName, contentRef }) {
     setSubmitMessage(null);
 
     try {
-      const response = await fetch('/api/comments', {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_PATH}/api/comments`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

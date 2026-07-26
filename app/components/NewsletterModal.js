@@ -17,7 +17,7 @@ export default function NewsletterModal({ isOpen, onClose }) {
     setSubmitMessage(null);
 
     try {
-      const response = await fetch('/api/newsletter', {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_PATH}/api/newsletter`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, Address: '' })
