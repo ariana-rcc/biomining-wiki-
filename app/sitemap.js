@@ -1,18 +1,13 @@
-// New canonical home (2026-07): the handbook now lives under the main WordPress site at
-// /criticalminerals/handbook (nginx reverse-proxy). Old host biomininghandbook.homeworld.bio
-// 301s here. Sitemap URLs must use the new path so GSC indexes the consolidated location.
+// The handbook is served under the main WordPress site at
+// /criticalminerals/handbook via an nginx reverse proxy. Sitemap URLs use that
+// path so search engines index the consolidated location.
 const SITE = "https://www.homeworld.bio/criticalminerals/handbook";
 
 // Served at <basePath>/sitemap.xml — the list of pages worth indexing.
-// NOTE: submit this exact URL in Google Search Console — the authoritative /robots.txt at the
-// domain root is WordPress's, so discovery via the nested robots.txt is not guaranteed.
 //
-// Why this exists (added 2026-07-22): Google Search Console reported
-// "No referring sitemaps detected" and "Referring page: None detected" for this site,
-// and the last crawl was three weeks old. Nothing on the web links here — the logo in
-// the nav points OUT to www.homeworld.bio, not the other way round — so Google had no
-// list of pages and little reason to look for them. Only the homepage was reliably
-// indexed; the dozen pages below were left to chance.
+// NOTE: submit this exact URL in Google Search Console. The authoritative
+// /robots.txt at the domain root is WordPress's, so discovery via the nested
+// robots.txt is not guaranteed.
 //
 // `/admin/comments` is deliberately ABSENT — see robots.js.
 const PAGES = [
