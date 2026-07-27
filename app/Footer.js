@@ -57,7 +57,7 @@ export default function Footer() {
           <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 mb-4">
             <div className="flex flex-col gap-2">
             <div className="flex items-center gap-6">
-              <a href="https://www.homeworld.bio" target="_blank" rel="noopener noreferrer" className="shrink-0">
+              <a href="https://www.homeworld.bio" className="shrink-0">
                 <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/homeworld-logo-full.png`} alt="Homeworld Logo" className="h-12" />
               </a>
               <div className="flex flex-wrap gap-2">

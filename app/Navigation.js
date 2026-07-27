@@ -52,7 +52,7 @@ export default function Navigation() {
 
               {/* Logo + Handbook label */}
               <div className="flex items-center min-w-0 flex-1">
-                <a href="https://www.homeworld.bio" target="_blank" rel="noopener noreferrer" className="flex items-center sm:-ml-8 shrink-0">
+                <a href="https://www.homeworld.bio" className="flex items-center sm:-ml-8 shrink-0">
                   <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/homeworld-logo-full-dark.png`} alt="Homeworld Collective" className="h-14 sm:h-[7.5rem]" />
                 </a>
                 <div className="hidden sm:block h-10 w-px bg-[#264563]/30 -ml-7 mr-2" />
