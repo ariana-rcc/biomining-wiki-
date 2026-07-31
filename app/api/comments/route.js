@@ -12,7 +12,7 @@ export async function POST(request) {
     // Validate comment data
     if (!validateComment(body)) {
       return NextResponse.json(
-        { error: 'Invalid comment data. Required: selectedText, comment, pageName, context' },
+        { error: `Invalid comment data. Required: ${requiredFields(body).join(', ')}` },
         { status: 400 }
       );
     }
@@ -43,9 +43,16 @@ export async function POST(request) {
   }
 }
 
+// A general offer to help (the Contribute button in the nav, footer and
+// homepage) is not anchored to a passage, so it carries no selectedText.
+// Submissions from the in-page annotation flow always do.
+function requiredFields(comment) {
+  const base = ['comment', 'pageName', 'context'];
+  return comment.contributor ? base : ['selectedText', ...base];
+}
+
 function validateComment(comment) {
-  const required = ['selectedText', 'comment', 'pageName', 'context'];
-  return required.every(
+  return requiredFields(comment).every(
     field => field in comment && String(comment[field]).trim()
   );
 }
@@ -53,12 +60,12 @@ function validateComment(comment) {
 function sanitizeComment(comment, clientIp) {
   const sanitized = {
     id: Date.now() + Math.floor(Math.random() * 1000),
-    selectedText: String(comment.selectedText).trim().slice(0, COMMENT_MAX_LENGTH),
+    selectedText: String(comment.selectedText || '').trim().slice(0, COMMENT_MAX_LENGTH),
     comment: String(comment.comment).trim().slice(0, COMMENT_MAX_LENGTH),
     pageName: String(comment.pageName).toLowerCase().trim(),
     context: {
       sectionTitle: String(comment.context?.sectionTitle || 'Unknown Section').trim().slice(0, 200),
-      selectedText: String(comment.selectedText).trim().slice(0, COMMENT_MAX_LENGTH)
+      selectedText: String(comment.selectedText || '').trim().slice(0, COMMENT_MAX_LENGTH)
     },
     timestamp: new Date().toISOString(),
     approved: false,

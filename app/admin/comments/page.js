@@ -51,10 +51,28 @@ export default function AdminCommentsPage() {
         setComments(data);
         setAuthenticated(true);
         localStorage.setItem('adminToken', token);
-      } else {
+      } else if (response.status === 401) {
         setAuthenticated(false);
         localStorage.removeItem('adminToken');
-        alert('Authentication failed');
+        alert('Authentication failed: that admin token was not accepted.');
+      } else {
+        // The token WAS accepted and something further down failed - most often
+        // the comment store being unreachable. Reporting that as an auth failure
+        // sends people hunting for a token problem that does not exist, so say
+        // what actually happened and keep the token for a retry.
+        let detail = '';
+        try {
+          const data = await response.json();
+          if (data && data.error) detail = ` (${data.error})`;
+        } catch {
+          // response had no JSON body; the status code is enough
+        }
+        setAuthenticated(false);
+        alert(
+          `Signed in successfully, but the comments could not be loaded${detail}. ` +
+          `The server returned HTTP ${response.status}. This usually means the ` +
+          `comment database is unavailable rather than a problem with your token.`
+        );
       }
     } catch (error) {
       alert('Failed to load comments');
@@ -311,10 +329,12 @@ export default function AdminCommentsPage() {
                         </div>
                       </div>
 
-                      <div className="mb-3 p-3 bg-slate-700/50 rounded border-l-4 border-emerald-500">
-                        <p className="text-xs text-slate-400 mb-1">Selected Text:</p>
-                        <p className="text-slate-200 italic">"{comment.selectedText}"</p>
-                      </div>
+                      {comment.selectedText && (
+                        <div className="mb-3 p-3 bg-slate-700/50 rounded border-l-4 border-emerald-500">
+                          <p className="text-xs text-slate-400 mb-1">Selected Text:</p>
+                          <p className="text-slate-200 italic">"{comment.selectedText}"</p>
+                        </div>
+                      )}
 
                       {comment.comment && (
                         <div>

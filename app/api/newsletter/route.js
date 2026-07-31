@@ -43,7 +43,11 @@ export async function POST(request) {
     return json({ success: true }, 200);
   }
 
-  const response = await fetch('https://api.homeworld.bio/api/forms/send', {
+  // WordPress's own form handler, on the main site. The old api.homeworld.bio
+  // hostname is a stale DNS record with no certificate, so it fails the TLS
+  // handshake before reaching anything. Same handler the homeworld.bio
+  // newsletter box posts to.
+  const response = await fetch('https://www.homeworld.bio/api/forms/send', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ email, Address: '' }),
